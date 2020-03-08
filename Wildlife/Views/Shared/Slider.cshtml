@@ -1,0 +1,24 @@
+﻿@model List<Models.Slide>
+<!---start-da-slider----->
+<div class="callbacks_container">
+    <ul class="rslides" id="slider3">
+        @foreach (var item in Model)
+        {
+            <li class="banner banner@(item.Id)">
+                <div class="container">
+                    <div class="banner-text">
+                        <div class="slider-info">
+                            <h3>@item.Large</h3>
+                            <span class="line"></span>
+                            <p>@item.Small</p>
+                            <a class="btn bg-theme mt-4 w3_pvt-link-bnr scroll" data-blast="bgColor" href="#about" role="button">
+                                @Resources.Slider.ViewMore
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </li>
+        }
+    </ul>
+</div>
+<!---//End-da-slider----->

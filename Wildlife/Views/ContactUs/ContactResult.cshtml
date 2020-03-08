@@ -1,0 +1,34 @@
+﻿@model DeveloperWeb.Models.Contact
+<!-- contact -->
+<div class="contact s5" id="contactdiv">
+    <div class="wrap">
+        <div class="contact-left">
+            <h3>@Resources.ContactUs.ContactResult.head</h3>
+            <p class="style">@Resources.ContactUs.ContactResult.text1</p>
+            <div class="get-intouch-left-address">
+                <p>@Resources.ContactUs.ContactResult.p1</p>
+                <p>@Resources.ContactUs.ContactResult.p2</p>
+                
+                <p class="style1">@Resources.ContactUs.ContactResult.email</p>
+                <p class="style2">@Resources.ContactUs.ContactResult.phone</p>
+            </div>
+        </div>
+        <div class="contact-right">
+                @if (Utils.TempData("Status", TempData) == "emailSent")
+                {
+                    <div class="get-intouch-left-address"><p class="style1">@Resources.ContactUs.Contact.EmailSent</p><br/></div>
+                }
+
+                @{
+                    var optionsGet = new AjaxOptions()
+                    {
+                        HttpMethod = "Get",
+                        InsertionMode = InsertionMode.ReplaceWith,
+                        UpdateTargetId = "contactdiv"
+                    };
+                }
+                @Ajax.ActionLink(Resources.ContactUs.Contact.Reload, "ContactAjax", "", optionsGet, new { @class = "button1" })
+        </div>
+        <div class="clear"></div>
+    </div>
+</div>

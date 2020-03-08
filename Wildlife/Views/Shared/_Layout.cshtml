@@ -1,0 +1,71 @@
+﻿@{
+    var routeValues = this.ViewContext.RouteData.Values;
+    var controller = routeValues["controller"] as string;
+    var action = routeValues["action"] as string;
+}
+<!DOCTYPE HTML>
+<html lang="zxx">
+<head>
+    <title>@_Layout.title</title>
+    <!-- online-fonts -->
+    <link href="//fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="author" content="softwaredev.ro" />
+    <meta name="description" content="@_Layout.MetaDescription" />
+    @Styles.Render("~/bundles/css")
+    @Scripts.Render("~/bundles/js")
+    @Scripts.Render("~/bundles/jqueryval")
+
+    <script>
+        (function (i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date(); a = s.createElement(o),
+            m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+
+        ga('create', 'UA-92322799-1', 'auto');
+        ga('send', 'pageview');
+
+    </script>
+</head>
+
+<body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
+    <!-- banner -->
+    <div id="home">
+        <!-- color scheme -->
+        <div class="blast-box">
+            <div class="blast-frame">
+                <p>color schemes</p>
+                <div class="blast-colors d-flex justify-content-center">
+                    <div class="blast-color">#23d48f</div>
+                    <div class="blast-color">#d3b800</div>
+                    <div class="blast-color">#18e7d3</div>
+                    <div class="blast-color">#e5902a</div>
+                    <div class="blast-color">#16d9e9</div>
+                    <!-- you can add more colors here -->
+                </div>
+                <p class="blast-custom-colors">Choose Custom color</p>
+                <input type="color" name="blastCustomColor" value="#d3b800">
+
+            </div>
+            <div class="blast-icon"><span class="fa fa-paint-brush" aria-hidden="true"></span></div>
+        </div>
+        @Html.Partial("Header")<!-- //color scheme -->
+
+        @Html.Action("Slider", "Home")
+    </div>
+    <!-- //banner -->
+
+    @RenderBody()  
+
+    @Html.Partial("Footer")
+    @Html.Partial("Login")
+    @Html.Partial("Register")
+    @Html.Partial("BlogModal")
+
+
+</body>
+</html>
